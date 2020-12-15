@@ -2,3 +2,5 @@ secrets.py
 __pycache__
 cache.json
 museum_restaurant.sqlite
+.DS_Store
+.Rhistory
