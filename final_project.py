@@ -272,10 +272,12 @@ def get_nearby_restaurants(location):
         except:
             price = 'no pricing level'
 
-        if restaurant['location']['address1'] == '':
-            address = 'no address'
-        else:
+        try:
             address = restaurant['location']['address1']
+            if address == '':
+                address = 'no address'
+        except:
+            address = 'no address'
 
         restau_dict['name'] = name
         restau_dict['restautype'] = restautype
@@ -459,8 +461,6 @@ def plot(restau_list):
 
 if __name__ == "__main__":
 
-    create_db()
-
     query = input('Enter a state name (e.g. Michigan, michigan) or "exit": ')
 
     while query.lower() == 'exit':
@@ -474,6 +474,7 @@ if __name__ == "__main__":
         elif query.lower() in build_state_url_dict().keys():
             state_url = build_state_url_dict()[query.lower()]
             museum_list = get_museum_instance(state_url)
+            create_db()
             load_museums(museum_list, query)
             print('-----------------------------------')
             print('List of museums in', query)
@@ -491,6 +492,7 @@ if __name__ == "__main__":
                     museum_instance = museum_list[int(query2)-1]
                     location = museum_instance.location + ', ' + query.lower()
                     nearby_restaurants_dict = get_nearby_restaurants(location)
+                    create_db()
                     load_restaurants(nearby_restaurants_dict, query)
                     print('-----------------------------------')
                     print('Places near', museum_instance.name)
