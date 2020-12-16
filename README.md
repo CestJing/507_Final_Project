@@ -7,3 +7,6 @@ Then, you can input an index number of a specific museum, which will produce a l
 When you input “back”, you can choose a new state. When you input “exit,” the program ends.
 
 In order to get information about restaurants from Yelp, we need API keys, which you can get from https://www.yelp.com/fusion. Click “Get Started”, create an account, then you can get your API key to run my code.
+
+Link to my demo-video: https://drive.google.com/file/d/1_oJdQItrB1-lI8cn85QjoAgVGbhwdfGv/view?usp=sharing
+
