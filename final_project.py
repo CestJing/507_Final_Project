@@ -196,9 +196,9 @@ def get_museum_instance(museum_list_url):
                 museumtype = museum[4].text.strip()
 
             try:
-                description = museum[-1].find('a').text.strip()
-            except:
                 description = museum[-1].text.strip()
+            except:
+                description = museum[-1].find('a').text.strip()
 
             museum_intance = Museum(name, museumtype, location, description)
             museum_instance_list.append(museum_intance)
